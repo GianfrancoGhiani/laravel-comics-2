@@ -314,3 +314,23 @@ a{
     }
     
 }
+#create{
+    label{
+        font-style: italic;
+        font-weight: 700;
+        color: grey;
+    }
+    button{
+        align-self: center;
+        color: $white;
+        background-color: $lightblue;
+        padding: .8rem 3rem;
+        width: fit-content;
+        border: 0;
+        font-weight: 700;
+        cursor: pointer;
+        &:hover{
+            background-color: darken($color:  $lightblue, $amount: 10);
+        }
+    }
+}

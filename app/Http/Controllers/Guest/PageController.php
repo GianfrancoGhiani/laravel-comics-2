@@ -31,6 +31,9 @@ class PageController extends Controller
     public function create()
     {
         //
+        $links = config('comics.links');
+        $socials = config('comics.socials');
+        return view('comics.create', compact('links', 'socials'));
     }
 
     /**
@@ -42,6 +45,19 @@ class PageController extends Controller
     public function store(Request $request)
     {
         //
+        $form_data = $request->all();
+        $newcomic = new Comic();
+        $newcomic->title = $form_data['title']; 
+        $newcomic->price = $form_data['price'];
+        $newcomic->series = $form_data['series'];
+        $newcomic->thumb = null;
+        $newcomic->description = null;
+        $newcomic->type = $form_data['type'];
+        $newcomic->sale_date = $form_data['sale_date'];
+        $newcomic->artists = null;
+        $newcomic->writers = null;
+        $newcomic->save();
+        return redirect()->route('comics.show', ['comic'=>$newcomic->id]);
     }
 
     /**

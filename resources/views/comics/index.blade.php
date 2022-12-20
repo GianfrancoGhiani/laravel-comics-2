@@ -34,8 +34,8 @@
         </div>
         
     </div>
-    <form action="{{route('comics.index')}}">
-        <button class="text-uppercase" type="submit" >load more</button>
+    <form action="{{route('comics.create')}}">
+        <button class="text-uppercase" type="submit" >Add your favourite comic</button>
     </form>
     
 </section>

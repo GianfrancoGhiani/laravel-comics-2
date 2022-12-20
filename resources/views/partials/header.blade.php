@@ -41,7 +41,13 @@
                 <a class="nav-link" href="#">games</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">collectibles</a>
+                <a 
+                @if (Route::currentRouteName() == 'comics.create')
+                class="nav-link my-active"
+                @else
+                class="nav-link"
+                @endif
+                 href="{{route('comics.create')}}">Add your Comic</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">videos</a>
