@@ -15,6 +15,11 @@ class PageController extends Controller
     public function index()
     {
         //
+        $comics = config('comics.comics');
+        $buy = config('comics.buy');
+        $links = config('comics.links');
+        $socials = config('comics.socials');
+        return view('comics.index', compact('comics', 'buy', 'links', 'socials'));
     }
 
     /**
