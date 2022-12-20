@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Comic;
 
 class PageController extends Controller
 {
@@ -15,7 +16,7 @@ class PageController extends Controller
     public function index()
     {
         //
-        $comics = config('comics.comics');
+        $comics = Comic::all();
         $buy = config('comics.buy');
         $links = config('comics.links');
         $socials = config('comics.socials');
@@ -52,6 +53,10 @@ class PageController extends Controller
     public function show($id)
     {
         //
+        $comic = Comic::findOrFail($id);
+        $links = config('comics.links');
+        $socials = config('comics.socials');
+        return view('comics.show', compact('comic','links', 'socials'));
     }
 
     /**

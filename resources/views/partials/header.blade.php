@@ -16,10 +16,20 @@
           <div class="collapse navbar-collapse my-navbar-menu" id="navbarsExample05">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link" href="#">characters</a>
+                <a @if (Route::currentRouteName() == 'home')
+                class="nav-link my-active"
+                @else
+                class="nav-link"
+                @endif
+                 href="/">home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link my-active" href="#">comics</a>
+                <a @if (Route::currentRouteName() == 'comics.index')
+                class="nav-link my-active"
+                @else
+                class="nav-link"
+                @endif
+                 href="{{route('comics.index')}}">comics</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">movies</a>
@@ -57,11 +67,10 @@
             </form>
           </div>
         </div>
-      </nav>
-
-      <section class="jumbo img-space">
-        <div class="container">
-            <h2 class="caps">@yield('section-title')</h2>
-        </div>
-      </section>
-    </header>
+    </nav>
+    <section class="jumbo img-space">
+      <div class="container sect-title">
+        @yield('section-title')
+      </div>
+    </section>
+</header>
