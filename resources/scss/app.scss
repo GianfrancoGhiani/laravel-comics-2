@@ -117,12 +117,25 @@
             }
         }
         .card-txt{
-            width: fit-content;
+            
+            width: 100%;
             max-width: calc(100% - 1rem);
             .sub{
+                visibility: hidden;
                 text-transform: capitalize;
-                color: $dark;
                 font-size: 85%;
+                &, & div{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .edit-btn{
+                    padding: .3rem 1rem;
+                    margin: 0 .1rem;
+                    a{
+                        text-decoration: none;
+                    }
+                }
             }
             
         }
@@ -132,13 +145,18 @@
                 background-color: $layover;
             }
             .sub{
-                color: $white;
+                visibility: visible;
             }
         }
     }
 }
 a{
     text-decoration: none;
+    color: $white;
+    &:hover{
+    color: $white;
+
+    }
 }
 #home{
     .card{
@@ -321,7 +339,6 @@ a{
         color: grey;
     }
     button{
-        align-self: center;
         color: $white;
         background-color: $lightblue;
         padding: .8rem 3rem;

@@ -19,7 +19,16 @@
                             </div>
                             <div class="card-txt">
                                 <div class="text-uppercase">{{$comic->title}}</div>
-                                <div class="sub">{{$comic->type}}</div>
+                                <div class="sub">{{$comic->type}} 
+                                    <div>
+                                        <button class="edit-btn"><a href="{{route('comics.edit', ['comic'=>$comic->id])}}"><i class="fa-solid fa-file-pen"></i></a></button>
+                                        <form action="{{route('comics.destroy', ['comic'=>$comic->id])}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="edit-btn bg-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                             <div class="details">
                                <div class="det-wrap">
